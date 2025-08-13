@@ -7,11 +7,11 @@ services:
       - SDL_VIDEODRIVER=dummy
       - MPLBACKEND=Agg
       - XDG_RUNTIME_DIR=/tmp
+    # Si este compose está en /Docker, monta el repo completo:
     volumes:
-      - ./:/app
+      - ..:/app
     ports:
       - "8888:8888"
     command: >
-      bash -lc "pip install --no-cache-dir jupyterlab ipykernel &&
-                jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=''"
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=''
     restart: unless-stopped
