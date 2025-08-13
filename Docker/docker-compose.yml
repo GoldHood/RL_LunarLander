@@ -1,20 +1,17 @@
-name: pytorch_dev
-
 services:
-  pytorch_dev:
-    container_name: pytorch_dev
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "${JUPYTER_PORT}:${JUPYTER_PORT}"
-    volumes:
-      - ./projects:/projects
-    working_dir: /projects
-    runtime: nvidia
+  rl:
+    build: .
+    container_name: rl_lunarlander
     environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=all
-      - PYTHONUNBUFFERED=1
-    stdin_open: true
-    tty: true
+      - PYGAME_HIDE_SUPPORT_PROMPT=1
+      - SDL_VIDEODRIVER=dummy
+      - MPLBACKEND=Agg
+      - XDG_RUNTIME_DIR=/tmp
+    volumes:
+      - ./:/app
+    ports:
+      - "8888:8888"
+    command: >
+      bash -lc "pip install --no-cache-dir jupyterlab ipykernel &&
+                jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=''"
+    restart: unless-stopped

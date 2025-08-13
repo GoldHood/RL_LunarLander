@@ -1,0 +1,20 @@
+name: pytorch_dev
+
+services:
+  pytorch_dev:
+    container_name: pytorch_dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${JUPYTER_PORT}:${JUPYTER_PORT}"
+    volumes:
+      - ./projects:/projects
+    working_dir: /projects
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
