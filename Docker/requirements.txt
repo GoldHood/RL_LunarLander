@@ -1,27 +1,22 @@
---index-url https://download.pytorch.org/whl/cpu
---extra-index-url https://pypi.org/simple
-
-# Core
-pandas==2.3.1
+# Núcleo numérico y gráficos
 numpy==1.26.4
-scipy==1.15.1
 matplotlib==3.8.4
-seaborn==0.13.2
-tqdm==4.66.4
-ipython==8.12.3
 
-# Entorno RL
-gymnasium[box2d]==0.29.1
+# Gymnasium + Box2D (LunarLander) y render
+gymnasium==0.29.1
 Box2D==2.3.10
+box2d-py==2.3.5
 pygame==2.6.1
 
-# Video
+# Grabación/exportación de video
 imageio==2.36.0
 imageio-ffmpeg==0.5.1
-moviepy==2.2.1
 
-# ML clásico
-scikit-learn==1.5.2
-
-# PyTorch CPU
+# RL / NN
 torch==2.5.1+cpu
+tqdm==4.66.4
+cma==3.2.2
+
+# Notebooks / utilidades usadas
+ipython==8.25.0
+nbformat==5.10.4
