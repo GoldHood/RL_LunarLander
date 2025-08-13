@@ -1,20 +1,27 @@
+--index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://pypi.org/simple
+
+# Core
 pandas==2.3.1
-Box2D==2.3.10
-ipython==8.12.3
-box2d-py==2.3.5
-gymnasium==0.29.1
-matplotlib==3.8.4
 numpy==1.26.4
+scipy==1.15.1
+matplotlib==3.8.4
+seaborn==0.13.2
+tqdm==4.66.4
+ipython==8.12.3
+
+# Entorno RL
+gymnasium[box2d]==0.29.1
+Box2D==2.3.10
 pygame==2.6.1
-swig==4.3.1
-torch==2.5.1+cpu
+
+# Video
 imageio==2.36.0
 imageio-ffmpeg==0.5.1
-ipython==8.12.3
 moviepy==2.2.1
-pygame==2.6.1
-scikit-learn==1.6.1
-scipy==1.15.1
-seaborn==0.13.2
-swig==4.3.1
-tqdm==4.66.4
+
+# ML clásico
+scikit-learn==1.5.2
+
+# PyTorch CPU
+torch==2.5.1+cpu
